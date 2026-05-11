@@ -1,0 +1,42 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "java",
+            "name": "Debug Spring Boot",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/kaoyan-platform/backend",
+            "console": "integratedTerminal",
+            "mainClass": "com.kaoyan.platform.KaoyanPlatformApplication",
+            "projectName": "kaoyan-platform",
+            "args": "",
+            "env": {}
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Frontend",
+            "url": "http://localhost:5173",
+            "webRoot": "${workspaceFolder}/kaoyan-platform/frontend/src",
+            "preLaunchTask": "npm: dev"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Run Frontend (npm)",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": ["run", "dev"],
+            "cwd": "${workspaceFolder}/kaoyan-platform/frontend",
+            "console": "integratedTerminal",
+            "skipFiles": ["<node_internals>/**"]
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Run Full Stack",
+            "configurations": ["Run Frontend (npm)", "Debug Spring Boot"],
+            "stopAll": true
+        }
+    ]
+}

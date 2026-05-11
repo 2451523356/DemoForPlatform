@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/kaoyan_platform?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:jxy2012520}
+  sql:
+    init:
+      mode: never
+
+jwt:
+  secret: ${JWT_SECRET:kaoyan-platform-dev-secret-2026}
+  expiration: 86400000
+
+logging:
+  level:
+    com.kaoyan.platform: debug
